@@ -287,7 +287,7 @@ Collaborative filtering requires a dense interaction matrix, it collapses on new
 `bge-small-en-v1.5` ranks at the top of the MTEB retrieval leaderboard for sub-100M parameter models. It fits in CPU memory (~500MB), making it deployable without GPU infrastructure. The next step up would be `bge-large` or `e5-mistral-7b` for production systems with GPU budget.
 
 **Why rating-weighted persona vectors?**  
-A simple average of a user's item embeddings ignores the strength of preference. Weighting by `rating - threshold` means a 5-star item pulls the persona harder than a 3.5-star item — capturing taste intensity, not just taste direction. This is the core idea behind weighted matrix factorization used at Netflix and Spotify.
+A simple average of a user's item embeddings ignores the strength of preference. Weighting by `rating - threshold` means a 5-star item pulls the persona harder than a 3.5-star item, capturing taste intensity, not just taste direction. This is the core idea behind weighted matrix factorization used at Netflix and Spotify.
 
 **Why overfetch-then-filter?**  
 Pushing consumed-item filtering to the application layer keeps the hot path simple and avoids metadata filter overhead on every vector query. For power users with very large histories, the fallback pass and, in production, native vector DB exclusion filters (Qdrant supports this natively) handle the edge case cleanly.
