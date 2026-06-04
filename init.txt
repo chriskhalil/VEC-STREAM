@@ -1,0 +1,30 @@
+# 1. Create a virtual environment
+python -m venv venv
+
+# 2. Activate it
+source venv/bin/activate 
+
+# 3. Install dependencies
+pip install -r requirements.txt
+
+# 4. Copy the env template
+cp .env.example .env
+
+# 5. Build indexes (first run downloads the BGE model, ~130 MB)
+python -m scripts.build_task1
+python -m scripts.build_task3
+python -m scripts.build_task2 --version basic
+python -m scripts.build_task2 --version imdb
+
+# 6. Run the server
+uvicorn app.main:app --reload
+
+
+#TESTING THE APPLICATION
+# Compare Task 1 vs Task 3
+curl "localhost:8000/movies/2571/similar?version=basic&limit=5" | jq
+curl "localhost:8000/movies/2571/similar?version=imdb&limit=5"  | jq
+
+# Task 2 on either backend
+curl "localhost:8000/users/1/recommendations?version=basic&limit=5" | jq
+curl "localhost:8000/users/1/recommendations?version=imdb&limit=5"  | jq
