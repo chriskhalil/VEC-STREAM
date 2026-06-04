@@ -1,6 +1,19 @@
-# 🎬 Stream-Rec: Production-Grade Media Recommendation Engine
+# 🎬 VEC-STREAM: Production-Grade Media Recommendation Engine
 
 >Recommendation engines power retention at Netflix, Spotify, and Anghami. This project addresses their core challenges from scratch, semantic content understanding, personalized ranking, cold-start handling, and automated content tagging.
+
+---
+
+## Tech Stack
+
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.111-009688?logo=fastapi&logoColor=white)
+![ChromaDB](https://img.shields.io/badge/ChromaDB-HNSW-orange)
+![SentenceTransformers](https://img.shields.io/badge/SentenceTransformers-BGE--small-blueviolet)
+![Pydantic](https://img.shields.io/badge/Pydantic-v2-E92063)
+![Groq](https://img.shields.io/badge/LLM-Llama--3.1--8b-red)
+![NumPy](https://img.shields.io/badge/NumPy-013243?logo=numpy&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?logo=pandas&logoColor=white)
 
 ---
 
@@ -312,19 +325,6 @@ The tagging pipeline evaluates generated tags against ground-truth labels across
 > Lexical metrics understate LLM quality on noisy, user-generated ground truth. Semantic metrics (`sem_avg_max_cosine`) are the more reliable signal for this corpus.
 
 Results are written to `data/output_llm/evaluation_metrics.json` after running the pipeline.
-
----
-
-## Tech Stack
-
-![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.111-009688?logo=fastapi&logoColor=white)
-![ChromaDB](https://img.shields.io/badge/ChromaDB-HNSW-orange)
-![SentenceTransformers](https://img.shields.io/badge/SentenceTransformers-BGE--small-blueviolet)
-![Pydantic](https://img.shields.io/badge/Pydantic-v2-E92063)
-![Groq](https://img.shields.io/badge/LLM-Llama--3.1--8b-red)
-![NumPy](https://img.shields.io/badge/NumPy-013243?logo=numpy&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-150458?logo=pandas&logoColor=white)
 
 ---
 
