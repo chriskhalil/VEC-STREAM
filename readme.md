@@ -281,7 +281,7 @@ API_PORT=8000
 ## Design Decisions
 
 **Why semantic embeddings over collaborative filtering?**  
-Collaborative filtering requires a dense interaction matrix — it collapses on new items and sparse users. Semantic embeddings generalize from content descriptions, enabling recommendations the moment an item is ingested with zero interaction data. This is why Spotify uses embeddings for new track discovery and Netflix for new original titles.
+Collaborative filtering requires a dense interaction matrix, it collapses on new items and sparse users. Semantic embeddings generalize from content descriptions, enabling recommendations the moment an item is ingested with zero interaction data. This is why Spotify uses embeddings for new track discovery and Netflix for new original titles.
 
 **Why BGE-small over larger models?**  
 `bge-small-en-v1.5` ranks at the top of the MTEB retrieval leaderboard for sub-100M parameter models. It fits in CPU memory (~500MB), making it deployable without GPU infrastructure. The next step up would be `bge-large` or `e5-mistral-7b` for production systems with GPU budget.
@@ -293,7 +293,7 @@ A simple average of a user's item embeddings ignores the strength of preference.
 Pushing consumed-item filtering to the application layer keeps the hot path simple and avoids metadata filter overhead on every vector query. For power users with very large histories, the fallback pass and, in production, native vector DB exclusion filters (Qdrant supports this natively) handle the edge case cleanly.
 
 **Why a two-pronged cold start?**  
-K-means cluster centroids cover taste-space diversity; the popularity list adds a quality backstop. Neither alone is sufficient — pure popularity is boring, pure diversity risks surfacing obscure content to a user who just wants something reliable.
+K-means cluster centroids cover taste-space diversity; the popularity list adds a quality backstop. Neither alone is sufficient pure popularity is boring, pure diversity risks surfacing obscure content to a user who just wants something reliable.
 
 ---
 
